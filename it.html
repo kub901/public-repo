@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="ko" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXT TECH ACADEMY - 미래를 선도하는 IT 전문 교육 기관</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts (Noto Sans KR) -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Noto Sans KR', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#0B0F19',
+                            card: '#111827',
+                            primary: '#3B82F6',
+                            accent: '#10B981',
+                            purple: '#8B5CF6'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #0B0F19;
+            color: #F3F4F6;
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #60A5FA 0%, #A78BFA 50%, #34D399 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gradient-border {
+            position: relative;
+            background: #111827;
+            border-radius: 1rem;
+        }
+        .gradient-border::before {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            border-radius: 1.05rem;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.5), rgba(16, 185, 129, 0.2));
+            z-index: -1;
+            transition: opacity 0.3s ease;
+        }
+        .gradient-border:hover::before {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.8), rgba(139, 92, 246, 0.8));
+        }
+        .hero-bg {
+            background-image: radial-gradient(circle at 50% 20%, rgba(59, 130, 246, 0.15) 0%, rgba(11, 15, 25, 0) 70%);
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-blue-500 selection:text-white">
+
+    <!-- Header Navigation -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-[#0B0F19]/80 backdrop-blur-md border-b border-gray-800/60 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="#" class="flex items-center space-x-3 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 to-emerald-400 flex items-center justify-center text-white shadow-lg shadow-blue-500/20 group-hover:scale-105 transition-transform">
+                    <i class="fa-solid fa-code text-xl"></i>
+                </div>
+                <span class="text-xl font-bold tracking-tight text-white">NEXT <span class="text-blue-500">TECH</span></span>
+            </a>
+
+            <!-- Desktop Menu -->
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-gray-300">
+                <a href="#courses" class="hover:text-blue-400 transition-colors">교육 과정</a>
+                <a href="#benefits" class="hover:text-blue-400 transition-colors">수강 혜택</a>
+                <a href="#reviews" class="hover:text-blue-400 transition-colors">취업 후기</a>
+                <a href="#consulting" class="hover:text-blue-400 transition-colors">무료 상담 신청</a>
+            </nav>
+
+            <!-- CTA Button -->
+            <div class="hidden md:flex items-center space-x-4">
+                <a href="#consulting" class="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-medium px-5 py-2.5 rounded-xl shadow-lg shadow-blue-600/30 transition-all hover:-translate-y-0.5">
+                    1:1 취업상담 예약
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <button id="mobile-menu-btn" class="md:hidden text-gray-400 hover:text-white focus:outline-none p-2">
+                <i class="fa-solid fa-bars text-2xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Nav -->
+        <div id="mobile-menu" class="hidden md:hidden bg-[#0B0F19] border-b border-gray-800 px-4 pt-2 pb-6 space-y-3">
+            <a href="#courses" class="block py-2 text-gray-300 hover:text-blue-400 font-medium">교육 과정</a>
+            <a href="#benefits" class="block py-2 text-gray-300 hover:text-blue-400 font-medium">수강 혜택</a>
+            <a href="#reviews" class="block py-2 text-gray-300 hover:text-blue-400 font-medium">취업 후기</a>
+            <a href="#consulting" class="block py-2 text-blue-400 font-semibold">무료 상담 신청</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 md:pt-44 md:pb-32 hero-bg overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <!-- Badge -->
+            <div class="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-sm font-semibold mb-8 backdrop-blur-md">
+                <span class="flex h-2 w-2 rounded-full bg-blue-400 animate-ping"></span>
+                <span>2026년 상반기 국비지원 / 전액무료 과정 모집 중</span>
+            </div>
+
+            <!-- Main Heading -->
+            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight text-white mb-6 leading-tight sm:leading-tight">
+                내일을 바꾸는 IT 실무 역량<br>
+                <span class="gradient-text">최고의 전문 교육 기관</span>에서 시작하세요
+            </h1>
+
+            <p class="max-w-2xl mx-auto text-lg sm:text-xl text-gray-400 mb-10 font-normal leading-relaxed">
+                비전공자도 6개월 만에 네카라쿠배형 개발자로! <br class="hidden sm:block">
+                현업 최상위 개발진의 1:1 밀착 코칭과 100% 실무 중심 포트폴리오를 제공합니다.
+            </p>
+
+            <!-- Action Buttons -->
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+                <a href="#courses" class="w-full sm:w-auto bg-blue-600 hover:bg-blue-500 text-white text-lg font-semibold px-8 py-4 rounded-xl shadow-xl shadow-blue-600/30 transition-all flex items-center justify-center space-x-2">
+                    <span>교육과정 둘러보기</span>
+                    <i class="fa-solid fa-arrow-right text-sm"></i>
+                </a>
+                <a href="#consulting" class="w-full sm:w-auto bg-gray-800/80 hover:bg-gray-700 text-gray-200 border border-gray-700 text-lg font-semibold px-8 py-4 rounded-xl transition-all flex items-center justify-center space-x-2">
+                    <i class="fa-solid fa-comments text-blue-400"></i>
+                    <span>무료 1:1 컨설팅</span>
+                </a>
+            </div>
+
+            <!-- Key Metric Counters -->
+            <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 pt-12 border-t border-gray-800/80 max-w-4xl mx-auto">
+                <div>
+                    <p class="text-3xl md:text-4xl font-extrabold text-white mb-1">94.8%</p>
+                    <p class="text-sm text-gray-400">수업 수료 후 취업률</p>
+                </div>
+                <div>
+                    <p class="text-3xl md:text-4xl font-extrabold text-white mb-1">0원</p>
+                    <p class="text-sm text-gray-400">국비 지원 시 자부담금</p>
+                </div>
+                <div>
+                    <p class="text-3xl md:text-4xl font-extrabold text-white mb-1">1:1</p>
+                    <p class="text-sm text-gray-400">전담 멘토 및 취업 코칭</p>
+                </div>
+                <div>
+                    <p class="text-3xl md:text-4xl font-extrabold text-white mb-1">4.9 / 5.0</p>
+                    <p class="text-sm text-gray-400">수강생 평점 만족도</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Courses Section (교육 과정 최소 2개 이상) -->
+    <section id="courses" class="py-24 bg-[#080B12] relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-blue-500 font-semibold tracking-wide uppercase mb-2">Curriculum</h2>
+                <p class="text-3xl sm:text-4xl font-bold text-white mb-4">기업이 지금 당장 탐내는 핵심 IT 교육 과정</p>
+                <p class="text-gray-400">이론에 그치지 않고, 현업에서 쓰이는 최신 기술 스택 기반의 프로젝트 중심 커리큘럼입니다.</p>
+            </div>
+
+            <!-- Course Cards Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                
+                <!-- Course 1: Full-stack -->
+                <div class="gradient-border p-8 flex flex-col justify-between hover:-translate-y-2 transition-transform duration-300">
+                    <div>
+                        <!-- Tag Badges -->
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">국비지원 100%</span>
+                            <span class="px-3 py-1 rounded-full text-xs font-semibold bg-blue-500/10 text-blue-400 border border-blue-500/20">인기 대표과정</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-3">풀스택 웹 개발자 커리어 Track</h3>
+                        <p class="text-gray-400 text-sm mb-6 leading-relaxed">
+                            JavaScript/TypeScript 중심으로 프론트엔드부터 백엔드, 클라우드 배포까지 다루는 웹 개발 완전 정복 프로젝트.
+                        </p>
+                        
+                        <!-- Details -->
+                        <div class="space-y-3 mb-6 border-y border-gray-800 py-4">
+                            <div class="flex items-center text-sm text-gray-300">
+                                <i class="fa-regular fa-clock w-6 text-blue-400"></i>
+                                <span><strong>교육 기간:</strong> 6개월 (총 960시간)</span>
+                            </div>
+                            <div class="flex items-center text-sm text-gray-300">
+                                <i class="fa-solid fa-users w-6 text-blue-400"></i>
+                                <span><strong>정원:</strong> 기수별 25명 정원제</span>
+                            </div>
+                            <div class="flex items-center text-sm text-gray-300">
+                                <i class="fa-solid fa-laptop-code w-6 text-blue-400"></i>
+                                <span><strong>핵심 프로젝트:</strong> 대용량 트래픽 커머스 구축</span>
+                            </div>
+                        </div>
+
+                        <!-- Tech Stack Icons -->
+                        <div class="mb-8">
+                            <p class="text-xs text-gray-500 uppercase tracking-wider font-semibold mb-2">주요 기술 스택</p>
+                            <div class="flex flex-wrap gap-2 text-xs">
+                                <span class="bg-gray-800 px-2.5 py-1 rounded text-gray-300"><i class="fa-brands fa-react text-cyan-400 mr-1"></i> React</span>
+                                <span class="bg-gray-800 px-2.5 py-1 rounded text-gray-300"><i class="fa-brands fa-node-js text-green-500 mr-1"></i> Node.js</span>
+                                <span class="bg-gray-800 px-2.5 py-1 rounded text-gray-300"><i class="fa-brands fa-js text-yellow-400 mr-1"></i> TypeScript</span>
+                                <span class="bg-gray-800 px-2.5 py-1 rounded text-gray-300">PostgreSQL</span>
+                                <span class="bg-gray-800 px-2.5 py-1 rounded text-gray-300"><i class="fa-brands fa-aws text-orange-400 mr-1"></i> AWS</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button onclick="openModal('풀스택 웹 개발자 커리어 Track')" class="w-full bg-blue-600/20 hover:bg-blue-600 text-blue-400 hover:text-white border border-blue-500/30 py-3 rounded-xl font-medium transition-colors flex items-center justify-center space-x-2">
+                        <span>커리큘럼 상세 보기</span>
+                        <i class="fa-solid fa-chevron-right text-xs"></i>
+                    </button>
+                </div>
+
+                <!-- Course 2: AI & Data Engineering -->
+                <div class="gradient-border p-8 flex flex-col justify-between hover:-translate-y-2 transition-transform duration-300">
+                    <div>
+                        <!-- Tag Badges -->
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">국비지원 100%</span>
+                            <span class="px-3 py-1 rounded-full text-xs font-semibold bg-purple-500/10 text-purple-400 border border-purple-500/20">AI/빅데이터</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-3">AI & 데이터 엔지니어링 전문가 과정</h3>
+                        <p class="text-gray-400 text-sm mb-6 leading-relaxed">
+                            Python 기반 머신러닝, 딥러닝 알고리즘 구현과 대용량 데이터 파이프라인 구축을 학습하는 최신 AI 인재 양성 과정.
+                        </p>
+
+                        <!-- Details -->
+                        <div class="space-y-3 mb-6 border-y border-gray-800 py-4">
+                            <div class="flex items-center text-sm text-gray-300">
+                                <i class="fa-regular fa-clock w-6 text-purple-400"></i>
+                                <span><strong>교육 기간:</strong> 6개월 (총 920시간)</span>
+                            </div>
+                            <div class="flex items-center text-sm text-gray-300">
+                                <i class="fa-solid fa-users w-6 text-purple-400"></i>
+                                <span><strong>정원:</strong> 기수별 20명 소수정예</span>
+                            </div>
+                            <div class="flex items-center text-sm text-gray-300">
+                                <i class="fa-solid fa-brain w-6 text-purple-400"></i>
+                                <span><strong>핵심 프로젝트:</strong> LLM 활용 인공지능 서비스</span>
+                            </div>
+                        </div>
+
+                        <!-- Tech Stack Icons -->
+                        <div class="mb-8">
+                            <p class="text-xs text-gray-500 uppercase tracking-wider font-semibold mb-2">주요 기술 스택</p>
+                            <div class="flex flex-wrap gap-2 text-xs">
+                                <span class="bg-gray-800 px-2.5 py-1 rounded text-gray-300"><i class="fa-brands fa-python text-blue-400 mr-1"></i> Python</span>
+                                <span class="bg-gray-800 px-2.5 py-1 rounded text-gray-300">PyTorch</span>
+                                <span class="bg-gray-800 px-2.5 py-1 rounded text-gray-300">Apache Spark</span>
+                                <span class="bg-gray-800 px-2.5 py-1 rounded text-gray-300">Pandas</span>
+                                <span class="bg-gray-800 px-2.5 py-1 rounded text-gray-300">FastAPI</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button onclick="openModal('AI & 데이터 엔지니어링 전문가 과정')" class="w-full bg-purple-600/20 hover:bg-purple-600 text-purple-300 hover:text-white border border-purple-500/30 py-3 rounded-xl font-medium transition-colors flex items-center justify-center space-x-2">
+                        <span>커리큘럼 상세 보기</span>
+                        <i class="fa-solid fa-chevron-right text-xs"></i>
+                    </button>
+                </div>
+
+                <!-- Course 3: DevOps & Security -->
+                <div class="gradient-border p-8 flex flex-col justify-between hover:-translate-y-2 transition-transform duration-300">
+                    <div>
+                        <!-- Tag Badges -->
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">국비지원 100%</span>
+                            <span class="px-3 py-1 rounded-full text-xs font-semibold bg-amber-500/10 text-amber-400 border border-amber-500/20">클라우드/보안</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-3">클라우드 DevOps & 보안 전문가 과정</h3>
+                        <p class="text-gray-400 text-sm mb-6 leading-relaxed">
+                            AWS 클라우드 인프라 자동화, CI/CD 파이프라인 구축 및 데브옵스 환경에서의 보안(DevSecOps) 실무 전수.
+                        </p>
+
+                        <!-- Details -->
+                        <div class="space-y-3 mb-6 border-y border-gray-800 py-4">
+                            <div class="flex items-center text-sm text-gray-300">
+                                <i class="fa-regular fa-clock w-6 text-emerald-400"></i>
+                                <span><strong>교육 기간:</strong> 5개월 (총 800시간)</span>
+                            </div>
+                            <div class="flex items-center text-sm text-gray-300">
+                                <i class="fa-solid fa-users w-6 text-emerald-400"></i>
+                                <span><strong>정원:</strong> 기수별 20명 정원제</span>
+                            </div>
+                            <div class="flex items-center text-sm text-gray-300">
+                                <i class="fa-solid fa-shield-halved w-6 text-emerald-400"></i>
+                                <span><strong>핵심 프로젝트:</strong> Zero-Trust 클라우드 설계</span>
+                            </div>
+                        </div>
+
+                        <!-- Tech Stack Icons -->
+                        <div class="mb-8">
+                            <p class="text-xs text-gray-500 uppercase tracking-wider font-semibold mb-2">주요 기술 스택</p>
+                            <div class="flex flex-wrap gap-2 text-xs">
+                                <span class="bg-gray-800 px-2.5 py-1 rounded text-gray-300"><i class="fa-brands fa-aws text-orange-400 mr-1"></i> AWS</span>
+                                <span class="bg-gray-800 px-2.5 py-1 rounded text-gray-300"><i class="fa-brands fa-docker text-blue-400 mr-1"></i> Docker</span>
+                                <span class="bg-gray-800 px-2.5 py-1 rounded text-gray-300">Kubernetes</span>
+                                <span class="bg-gray-800 px-2.5 py-1 rounded text-gray-300">Terraform</span>
+                                <span class="bg-gray-800 px-2.5 py-1 rounded text-gray-300">Jenkins</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button onclick="openModal('클라우드 DevOps & 보안 전문가 과정')" class="w-full bg-emerald-600/20 hover:bg-emerald-600 text-emerald-300 hover:text-white border border-emerald-500/30 py-3 rounded-xl font-medium transition-colors flex items-center justify-center space-x-2">
+                        <span>커리큘럼 상세 보기</span>
+                        <i class="fa-solid fa-chevron-right text-xs"></i>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Advantages / Benefits Section -->
+    <section id="benefits" class="py-24 bg-[#0B0F19]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-emerald-400 font-semibold tracking-wide uppercase mb-2">Why Next Tech?</h2>
+                <p class="text-3xl sm:text-4xl font-bold text-white mb-4">비전공자도 압도적인 실무자가 되는 이유</p>
+                <p class="text-gray-400">단순 인강이 아닌, 끝까지 함께 완주시키는 완벽한 서포트 시스템 시스템을 자랑합니다.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Advantage 1 -->
+                <div class="bg-[#111827] p-8 rounded-2xl border border-gray-800 hover:border-gray-700 transition-all">
+                    <div class="w-14 h-14 bg-blue-500/10 text-blue-400 rounded-2xl flex items-center justify-center mb-6 text-2xl border border-blue-500/20">
+                        <i class="fa-solid fa-chalkboard-user"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">1:1 밀착 멘토링 & 코드 리뷰</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        현업 7년 차 이상의 베테랑 개발자가 매일 과제 및 프로젝트 코드를 1:1로 직접 리뷰하여 좋지 않은 습관을 교정해 드립니다.
+                    </p>
+                </div>
+
+                <!-- Advantage 2 -->
+                <div class="bg-[#111827] p-8 rounded-2xl border border-gray-800 hover:border-gray-700 transition-all">
+                    <div class="w-14 h-14 bg-emerald-500/10 text-emerald-400 rounded-2xl flex items-center justify-center mb-6 text-2xl border border-emerald-500/20">
+                        <i class="fa-solid fa-people-group"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">100% 실무 중심 팀 프로젝트</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        가상의 서비스가 아닌 실제 스타트업 연계 기업 과제를 바탕으로 기획부터 개발, 클라우드 배포까지 팀 협업을 완수합니다.
+                    </p>
+                </div>
+
+                <!-- Advantage 3 -->
+                <div class="bg-[#111827] p-8 rounded-2xl border border-gray-800 hover:border-gray-700 transition-all">
+                    <div class="w-14 h-14 bg-purple-500/10 text-purple-400 rounded-2xl flex items-center justify-center mb-6 text-2xl border border-purple-500/20">
+                        <i class="fa-solid fa-briefcase"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">전담 취업 컨설팅 & 이력서 솔루션</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        IT 전문 서류 코칭, 모의 기술 면접, 협력 파트너사 우선 채용 연계 혜택을 통해 최종 합격까지 책임지고 지원합니다.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Student Reviews / Success Stories -->
+    <section id="reviews" class="py-24 bg-[#080B12] border-t border-gray-800/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-purple-400 font-semibold tracking-wide uppercase mb-2">Success Stories</h2>
+                <p class="text-3xl sm:text-4xl font-bold text-white mb-4">선배들의 생생한 취업 성공 후기</p>
+                <p class="text-gray-400">비전공/문과 출신 수강생들이 IT 핵심 개발자로 거듭난 이야기입니다.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Review 1 -->
+                <div class="bg-[#111827] p-6 rounded-2xl border border-gray-800 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center space-x-1 text-amber-400 mb-4">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-gray-300 text-sm leading-relaxed mb-6">
+                            "경영학 전공이라 코딩의 '코'자도 몰랐습니다. 하지만 6개월 동안 멘토님의 꼼꼼한 코드 리뷰와 팀 프로젝트 덕분에 포트폴리오를 완성하고 원하던 핀테크 서비스 개발자로 합격했습니다!"
+                        </p>
+                    </div>
+                    <div class="flex items-center space-x-3 pt-4 border-t border-gray-800">
+                        <div class="w-10 h-10 rounded-full bg-blue-500/20 text-blue-400 font-bold flex items-center justify-center">
+                            김*우
+                        </div>
+                        <div>
+                            <p class="text-sm font-semibold text-white">김*우 수강생 (풀스택 12기)</p>
+                            <p class="text-xs text-blue-400">핀테크 스타트업 프론트엔드 합격</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="bg-[#111827] p-6 rounded-2xl border border-gray-800 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center space-x-1 text-amber-400 mb-4">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-gray-300 text-sm leading-relaxed mb-6">
+                            "혼자서 데이터 분석 공부할 땐 막막했는데, 대용량 데이터를 처리하는 파이프라인 구축 프로젝트를 직접 경험해본 것이 면접에서 커다란 강점이 되었습니다."
+                        </p>
+                    </div>
+                    <div class="flex items-center space-x-3 pt-4 border-t border-gray-800">
+                        <div class="w-10 h-10 rounded-full bg-purple-500/20 text-purple-400 font-bold flex items-center justify-center">
+                            이*진
+                        </div>
+                        <div>
+                            <p class="text-sm font-semibold text-white">이*진 수강생 (AI/Data 8기)</p>
+                            <p class="text-xs text-purple-400">대기업 계열사 데이터 엔지니어 합격</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="bg-[#111827] p-6 rounded-2xl border border-gray-800 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center space-x-1 text-amber-400 mb-4">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-gray-300 text-sm leading-relaxed mb-6">
+                            "1:1 이력서 코칭부터 모의 면접까지 매주 진행해주셔서 면접장에서 긴장하지 않고 제가 한 프로젝트를 명확하게 설명할 수 있었습니다. 최고의 교육 기관입니다."
+                        </p>
+                    </div>
+                    <div class="flex items-center space-x-3 pt-4 border-t border-gray-800">
+                        <div class="w-10 h-10 rounded-full bg-emerald-500/20 text-emerald-400 font-bold flex items-center justify-center">
+                            박*현
+                        </div>
+                        <div>
+                            <p class="text-sm font-semibold text-white">박*현 수강생 (DevOps 5기)</p>
+                            <p class="text-xs text-emerald-400">IT 솔루션 기업 클라우드 엔지니어 합격</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Counseling / Application Form Section -->
+    <section id="consulting" class="py-24 bg-[#0B0F19] relative">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-gradient-to-br from-[#111827] to-[#1F2937] p-8 sm:p-12 rounded-3xl border border-gray-700/60 shadow-2xl relative overflow-hidden">
+                <!-- Background Accent Circle -->
+                <div class="absolute -right-16 -top-16 w-64 h-64 bg-blue-600/10 rounded-full blur-3xl pointer-events-none"></div>
+
+                <div class="text-center mb-10">
+                    <span class="text-blue-400 font-semibold text-sm uppercase tracking-wider">Contact & Counseling</span>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-white mt-2 mb-3">무료 1:1 수강 및 취업 상담 신청</h2>
+                    <p class="text-gray-400 text-sm sm:text-base">
+                        나에게 맞는 과정이 무엇인지 고민되시나요? 전문 커리어 컨설턴트가 친절하게 안내해 드립니다.
+                    </p>
+                </div>
+
+                <!-- Form -->
+                <form id="consulting-form" onsubmit="handleFormSubmit(event)" class="space-y-6">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <!-- Name -->
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-2">성함 <span class="text-red-400">*</span></label>
+                            <input type="text" required placeholder="홍길동" class="w-full bg-[#0B0F19] border border-gray-700 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 rounded-xl px-4 py-3 text-white placeholder-gray-500 outline-none transition-all">
+                        </div>
+                        <!-- Phone -->
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-2">연락처 <span class="text-red-400">*</span></label>
+                            <input type="tel" required placeholder="010-1234-5678" class="w-full bg-[#0B0F19] border border-gray-700 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 rounded-xl px-4 py-3 text-white placeholder-gray-500 outline-none transition-all">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <!-- Interested Course -->
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-2">관심 교육 과정 <span class="text-red-400">*</span></label>
+                            <select id="course-select" required class="w-full bg-[#0B0F19] border border-gray-700 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 rounded-xl px-4 py-3 text-white outline-none transition-all">
+                                <option value="">과정을 선택해 주세요</option>
+                                <option value="풀스택 웹 개발자 커리어 Track">풀스택 웹 개발자 커리어 Track</option>
+                                <option value="AI & 데이터 엔지니어링 전문가 과정">AI & 데이터 엔지니어링 전문가 과정</option>
+                                <option value="클라우드 DevOps & 보안 전문가 과정">클라우드 DevOps & 보안 전문가 과정</option>
+                            </select>
+                        </div>
+                        <!-- Preferred Time -->
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-2">상담 희망 시간대</label>
+                            <select class="w-full bg-[#0B0F19] border border-gray-700 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 rounded-xl px-4 py-3 text-white outline-none transition-all">
+                                <option value="오전 (10:00 ~ 12:00)">오전 (10:00 ~ 12:00)</option>
+                                <option value="오후 (13:00 ~ 17:00)">오후 (13:00 ~ 17:00)</option>
+                                <option value="저녁 (17:00 ~ 19:00)">저녁 (17:00 ~ 19:00)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Privacy Check -->
+                    <div class="flex items-center space-x-2 pt-2">
+                        <input type="checkbox" id="privacy" required class="w-4 h-4 rounded bg-[#0B0F19] border-gray-700 text-blue-600 focus:ring-blue-500">
+                        <label for="privacy" class="text-xs text-gray-400">
+                            개인정보 수집 및 이용에 동의합니다. (상담 목적 외 사용되지 않습니다)
+                        </label>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="w-full bg-gradient-to-r from-blue-600 to-emerald-500 hover:from-blue-500 hover:to-emerald-400 text-white font-bold text-lg py-4 rounded-xl shadow-lg transition-all transform active:scale-[0.99]">
+                        상담 신청하기
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal Dialog for Course Details / Success Message -->
+    <div id="modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm">
+        <div class="bg-[#111827] border border-gray-700 rounded-2xl max-w-lg w-full p-6 sm:p-8 relative shadow-2xl">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+            <div id="modal-content">
+                <!-- Dynamic Content injected via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-[#06080E] border-t border-gray-800/80 py-12 text-gray-400 text-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-6">
+                <div>
+                    <div class="flex items-center space-x-3 mb-2">
+                        <div class="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center text-white">
+                            <i class="fa-solid fa-code text-sm"></i>
+                        </div>
+                        <span class="text-lg font-bold text-white">NEXT TECH ACADEMY</span>
+                    </div>
+                    <p class="text-gray-500 text-xs">미래형 IT 실무 인재 양성 전문 기관</p>
+                </div>
+                <div class="flex space-x-6 text-gray-400">
+                    <a href="#" class="hover:text-blue-400 transition-colors"><i class="fa-brands fa-github text-xl"></i></a>
+                    <a href="#" class="hover:text-blue-400 transition-colors"><i class="fa-brands fa-youtube text-xl"></i></a>
+                    <a href="#" class="hover:text-blue-400 transition-colors"><i class="fa-brands fa-instagram text-xl"></i></a>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800/60 pt-6 grid grid-cols-1 md:grid-cols-2 gap-4 text-xs text-gray-500">
+                <div>
+                    <p>사업자 등록번호: 123-86-00000 | 대표: 홍길동 | 직업능력개발훈련시설 지정기관</p>
+                    <p>주소: 서울특별시 강남구 테헤란로 123 넥스트타워 5층</p>
+                    <p>문의: 02-1234-5678 | 이메일: contact@nexttech.ac.kr</p>
+                </div>
+                <div class="md:text-right flex flex-col justify-end">
+                    <div class="space-x-4 mb-2">
+                        <a href="#" class="hover:underline">개인정보처리방침</a>
+                        <a href="#" class="hover:underline">이용약관</a>
+                        <a href="#" class="hover:underline">오시는 길</a>
+                    </div>
+                    <p>&copy; 2026 NEXT TECH ACADEMY. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Modal Elements
+        const modal = document.getElementById('modal');
+        const modalContent = document.getElementById('modal-content');
+
+        // Open Modal for Course Detail
+        function openModal(courseTitle) {
+            modalContent.innerHTML = `
+                <div class="text-center">
+                    <div class="w-12 h-12 bg-blue-500/10 text-blue-400 rounded-full flex items-center justify-center mx-auto mb-4 border border-blue-500/20">
+                        <i class="fa-solid fa-book-bookmark text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">[${courseTitle}]</h3>
+                    <p class="text-gray-300 text-sm mb-6">
+                        해당 커리큘럼의 상세 모집 요강 및 국비지원 지원 대상 여부를 즉시 확인해 드립니다. 아래 버튼을 눌러 상담을 신청해 주세요!
+                    </p>
+                    <button onclick="selectCourseAndScroll('${courseTitle}')" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-medium py-3 rounded-xl transition-colors">
+                        이 과정으로 상담 신청하기
+                    </button>
+                </div>
+            `;
+            modal.classList.remove('hidden');
+        }
+
+        // Close Modal
+        function closeModal() {
+            modal.classList.add('hidden');
+        }
+
+        // Select Course from Modal & Scroll down
+        function selectCourseAndScroll(courseTitle) {
+            closeModal();
+            const select = document.getElementById('course-select');
+            if (select) {
+                select.value = courseTitle;
+            }
+            document.getElementById('consulting').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Form Submit Handler
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            modalContent.innerHTML = `
+                <div class="text-center">
+                    <div class="w-12 h-12 bg-emerald-500/10 text-emerald-400 rounded-full flex items-center justify-center mx-auto mb-4 border border-emerald-500/20">
+                        <i class="fa-solid fa-circle-check text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-2">상담 신청 완료!</h3>
+                    <p class="text-gray-300 text-sm mb-6">
+                        신청해 주셔서 감사합니다. 담당 커리어 컨설턴트가 확인 후 작성해 주신 연락처로 24시간 이내에 안내드리겠습니다.
+                    </p>
+                    <button onclick="closeModal()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-medium py-3 rounded-xl transition-colors">
+                        확인
+                    </button>
+                </div>
+            `;
+            modal.classList.remove('hidden');
+            event.target.reset();
+        }
+
+        // Close modal when clicking background overlay
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>
